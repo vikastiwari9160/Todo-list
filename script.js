@@ -8,7 +8,8 @@ function addTask() {
     else{
         let li = document.createElement('li');
         // let h4 = document.createElement('h4');
-        let del = document.createElement('span');
+        let del = document.createElement('button');
+        del.setAttribute('onclick','done()');
         container.appendChild(li);
         li.innerHTML= task;
         del.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
@@ -17,15 +18,25 @@ function addTask() {
     }
     taskBox.value = '';
 }
-function clicked(){
-    alert('button clicked');
+
+function done(){
+    event.target.parentElement.parentElement.remove();
 }
 
-addEventListener("click", function (e) {
-    if(e.target.tagName === 'li'){
-        clicked(); 
-    }
-}); 
+// addEventListener('click',)
+
+// let del = document.getElementById("del");
+// del?.addEventListener('click',function(e){console.log('clicked')});
+
+// function clicked(){
+//     alert('button clicked');
+// }
+
+// addEventListener("click", function (e) {
+//     if(e.target.tagName === 'li'){
+//         clicked(); 
+//     }
+// }); 
 
 // if(e.target.tagName === 'span'){
 //     console.log('eventlistner executed');
